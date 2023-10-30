@@ -4,8 +4,11 @@
   "description": "## About",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "find ./ -type f -name '*.spec.ts' -not -path './node_modules/*' -print | xargs npx tsx --no-warnings --test",
+    "prepare": "husky install",
+    "prepublish": "npx swc -d dist ./src"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MLopezJ/result-transformation.git"
