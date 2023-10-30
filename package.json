@@ -1,0 +1,27 @@
+{
+  "name": "result-transformation",
+  "version": "1.0.0",
+  "description": "## About",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MLopezJ/result-transformation.git"
+  },
+  "keywords": [
+    "coiote",
+    "lwm2m",
+    "nRF",
+    "Asset",
+    "Tracker",
+    "Reported"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MLopezJ/result-transformation/issues"
+  },
+  "homepage": "https://github.com/MLopezJ/result-transformation#readme"
+}
