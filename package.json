@@ -46,5 +46,8 @@
     "semantic-release": "21.1.1",
     "tsx": "3.12.7",
     "typescript": "5.1.6"
+  },
+  "dependencies": {
+    "@nordicsemiconductor/asset-tracker-lwm2m": "^1.0.9"
   }
 }
