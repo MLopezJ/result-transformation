@@ -13,15 +13,26 @@
   "keywords": [
     "coiote",
     "lwm2m",
-    "nRF",
-    "Asset",
-    "Tracker",
-    "Reported"
+    "nRF Asset Tracker Reported"
   ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MLopezJ/result-transformation/issues"
   },
-  "homepage": "https://github.com/MLopezJ/result-transformation#readme"
+  "homepage": "https://github.com/MLopezJ/result-transformation#readme",
+  "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc",
+  "lint-staged": {
+    "*.{md,json,yaml,yml}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --ext .js,.ts"
+    ]
+  },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=9"
+  }
 }
