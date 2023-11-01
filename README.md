@@ -2,7 +2,29 @@
 
 ## About
 
-Demonstration of how [Coiote to LwM2M](https://github.com/MLopezJ/coiote-to-LwM2M-asset-tracker-v2) and [Asset Tracker LwM2M](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js) work together, with the intention of transforming format from `Coiote` to `nRF Asset Tracker Reported`
+Demonstration of how
+[Coiote to LwM2M](https://github.com/MLopezJ/coiote-to-LwM2M-asset-tracker-v2)
+and
+[Asset Tracker LwM2M](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js)
+work together, with the intention of transforming format from `Coiote` to
+`nRF Asset Tracker Reported`
+
+## Mapping
+
+| LwM2M ID                                                                                                                                        | Name                    | AssetTrackerv2 Firmware                                                                                                                         | Coiote-Azure                                                                                        | LwM2M Asset Tracker v2 | nRF Asset Tracker Reported                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
+| [3](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3-1_1.xml)                                                   | Device                  | [3:1.2@1.1](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3-1_2.xml)                                           | 3:1.2@1.1                                                                                           | 3:1.2@1.1              | [bat](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/battery.md), [dev](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/device.md), [roam](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/roaming.md) |
+| [4](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/4-1_1.xml)                                                   | Connectivity Monitoring | [4:1.3@1.1](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/4-1_3.xml)                                           | 4:1.3@1.1                                                                                           | 4:1.3@1.1              | [roam](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/roaming.md)                                                    |
+| [6](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/6-1_0.xml)                                                   | Location                | [6](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/6-1_0.xml)                                                   | 6                                                                                                   | 6                      | [gnss](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/gnss.md)                                                       |
+| [3303](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3303-1_1.xml)                                             | Temperature             | [3303:1.1](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3303-1_1.xml)                                         | [3303](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3303-1_0.xml) | 3303:1.1               | [env](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/environment.md)                                                 |
+| [3304](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3304-1_1.xml)                                             | Humidity                | [3304:1.1](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3304-1_1.xml)                                         | [3304](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3304-1_0.xml) | 3304:1.1               | [env](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/environment.md)                                                 |
+| [3323](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3323-1_1.xml)                                             | Pressure                | [3323:1.1](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3323-1_1.xml)                                         | [3323](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/version_history/3323-1_0.xml) | 3323:1.1               | [env](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/environment.md)                                                 |
+| [50009](https://github.com/nrfconnect/sdk-nrf/blob/v2.4.0/applications/asset_tracker_v2/src/cloud/lwm2m_integration/config_object_descript.xml) | Config                  | [50009](https://github.com/nrfconnect/sdk-nrf/blob/v2.4.0/applications/asset_tracker_v2/src/cloud/lwm2m_integration/config_object_descript.xml) | 50009                                                                                               | 50009                  | [cfg](https://github.com/NordicSemiconductor/asset-tracker-lwm2m-js/blob/v1.0.11/docs/config.md)                                                      |
+
+
+Where "`:`" indicates the **object** version and "`@`" indicates the **LwM2M**
+version. if not present, values will be the default option. Default **LwM2M**
+version is `1.0`. Default **object** version is `1.0`.
 
 ## Installation
 
@@ -381,14 +403,13 @@ const assetTrackerReported = {
 ## Example
 
 ```ts
-
 export const fromCoioteToAssetTrackerReported = (
-	coiote: DeviceTwin,
+  coiote: DeviceTwin,
 ): nRFAssetTrackerReportedType => {
-	const lwm2m = lwm2mConverted(coiote)
-	const nRFAssetTrackerReported = assetTrackerReportedConverted(lwm2m)
-	return nRFAssetTrackerReported
-}
+  const lwm2m = lwm2mConverted(coiote);
+  const nRFAssetTrackerReported = assetTrackerReportedConverted(lwm2m);
+  return nRFAssetTrackerReported;
+};
 ```
 
 See [./src/example.ts](./src/example.ts) for more.
