@@ -6,13 +6,12 @@ import {
 	converter as lwm2mConverted,
 	type DeviceTwin,
 } from '@nordicsemiconductor/asset-tracker-coiote-azure-lwm2m'
-import { coiote } from './deviceTwin'
 
 
 /**
  * Result Transformation example of usage
  */
-const fromCoioteToAssetTrackerReported = (
+export const fromCoioteToAssetTrackerReported = (
 	coiote: DeviceTwin,
 ): nRFAssetTrackerReportedType => {
 	const lwm2m = lwm2mConverted(coiote)
@@ -20,4 +19,3 @@ const fromCoioteToAssetTrackerReported = (
 	return nRFAssetTrackerReported
 }
 
-console.log(fromCoioteToAssetTrackerReported(coiote))
