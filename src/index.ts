@@ -314,7 +314,7 @@ const coiote = {
 }
 
 /**
- * Result Transformation
+ * Result Transformation example of usage
  */
 const fromCoioteToAssetTrackerReported = (
 	coiote: DeviceTwin,
