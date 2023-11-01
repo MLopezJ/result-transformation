@@ -314,7 +314,7 @@ const coiote = {
 };
 ```
 
-### Expected output
+## Expected output
 
 ```ts
 const assetTrackerReported = {
@@ -362,3 +362,18 @@ const assetTrackerReported = {
   },
 };
 ```
+
+## Example
+
+```ts
+
+export const fromCoioteToAssetTrackerReported = (
+	coiote: DeviceTwin,
+): nRFAssetTrackerReportedType => {
+	const lwm2m = lwm2mConverted(coiote)
+	const nRFAssetTrackerReported = assetTrackerReportedConverted(lwm2m)
+	return nRFAssetTrackerReported
+}
+```
+
+See [./src/example.ts](./src/example.ts) for more.
