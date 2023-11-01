@@ -5,7 +5,7 @@ import {
 import {
 	converter as lwm2mConverted,
 	type DeviceTwin,
-} from 'coiote-to-LwM2M-asset-tracker-v2/src/converter'
+} from '@nordicsemiconductor/asset-tracker-coiote-azure-lwm2m'
 
 const coiote = {
 	properties: {
